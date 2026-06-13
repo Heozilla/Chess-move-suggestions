@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Chess Hint Tool",
+  "version": "1.0",
+  "description": "Gợi ý nước đi cờ vua với Stockfish",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://localhost:3000/*"
+  ],
+  "action": {
+    "default_title": "Bật/Tắt Menu Gợi ý"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.chess.com/*",
+        "*://*.lichess.org/*"
+      ],
+      "css": ["style.css"],
+      "js": ["content_script.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

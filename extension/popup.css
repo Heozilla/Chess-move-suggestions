@@ -1,0 +1,131 @@
+body {
+    width: 250px;
+    margin: 0;
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    color: #4CAF50; /* Visual Xanh chủ đạo */
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.status-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    background: #2a2a2a;
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+.status-dot {
+    font-weight: bold;
+}
+.status-dot.offline { color: #f44336; }
+.status-dot.online { color: #4CAF50; }
+
+/* CSS cho nút gạt (Toggle Switch) */
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px; width: 14px;
+    left: 3px; bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider { background-color: #4CAF50; }
+input:checked + .slider:before { transform: translateX(20px); }
+.slider.round { border-radius: 20px; }
+.slider.round:before { border-radius: 50%; }
+
+.toggle-text { font-size: 14px; }
+
+/* =========================================
+   STYLE CHO FORM CẤU HÌNH
+========================================= */
+.settings-form {
+    margin-top: 5px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.form-group input, 
+.form-group select {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 6px;
+    border-radius: 4px;
+    outline: none;
+    width: 110px;
+    font-family: inherit;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #4CAF50;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 5px;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}

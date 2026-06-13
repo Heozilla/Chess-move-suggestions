@@ -1,0 +1,112 @@
+/* Giao diện Floating Menu LTL Shop */
+.ltl-floating-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 280px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 999999; /* Nổi lên trên cùng */
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.ltl-header {
+    background-color: #2a2a2a;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab; /* Icon bàn tay khi di chuột vào header */
+    border-bottom: 1px solid #444;
+}
+
+.ltl-header:active {
+    cursor: grabbing; /* Đổi icon khi đang nắm kéo */
+}
+
+.ltl-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: #4CAF50;
+    pointer-events: none; /* Tránh text cản trở việc kéo thả */
+}
+
+.ltl-status {
+    font-size: 11px;
+    font-weight: bold;
+}
+.ltl-status.offline { color: #f44336; }
+.ltl-status.online { color: #4CAF50; }
+
+.ltl-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ltl-form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.ltl-form-group input {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 6px;
+    border-radius: 4px;
+    width: 60px;
+    outline: none;
+    text-align: center;
+}
+
+.ltl-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.ltl-btn:hover { background-color: #45a049; }
+
+.ltl-result-box {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #2a2a2a;
+    border-radius: 4px;
+    font-size: 13px;
+    text-align: center;
+    min-height: 20px;
+}
+/* =========================================
+   STYLE CHO HIỆU ỨNG VISUAL XANH (HIGHLIGHT)
+========================================= */
+.ltl-highlight {
+    position: absolute;
+    z-index: 100; /* Nằm dưới quân cờ (z-index pieces thường > 1000) */
+    opacity: 0.7;
+    pointer-events: none; /* Tránh click nhầm vào highlight */
+}
+
+/* Màu ô đang đứng */
+.ltl-highlight.ltl-from {
+    background-color: rgba(255, 215, 0, 0.6); /* Vàng chanh */
+}
+
+/* Màu ô gợi ý đi tới (Visual Xanh) */
+.ltl-highlight.ltl-to {
+    background-color: rgba(0, 255, 128, 0.7); /* Xanh lá sáng */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
