@@ -13,13 +13,17 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/bestmove', async (req, res) => {
-    const { fen, depth } = req.body; 
+    const { fen, depth, multipv } = req.body; 
     if (!fen) return res.status(400).json({ error: 'Missing FEN' });
 
     try {
-        const move = await getBestMove(fen, depth || 15);
-        console.log('✅ Tìm thấy nước đi tốt nhất:', move);
-        res.json({ success: true, bestMove: move });
+        const suggestions = await getBestMove(fen, depth || 15, multipv || 1);
+        console.log(`✅ Tìm thấy ${suggestions.length} nước đi gợi ý:`, suggestions);
+        res.json({ 
+            success: true, 
+            suggestions,
+            bestMove: suggestions[0] ? suggestions[0].move : null 
+        });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
